@@ -8,7 +8,7 @@ body {
 body {
   /* height: 200vh; */
 }
-.btn {
+button {
   cursor: pointer;
 }
 a {
