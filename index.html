@@ -17,6 +17,7 @@
       integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
       crossorigin="anonymous"
     />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Udemy</title>
   </head>
   <body>
@@ -48,7 +49,7 @@
         </li>
         <li class="nav-lst category">Categories</li>
         <li class="nav-lst search-bar">
-          <form action="" class="search-bar-form">
+          <form class="search-bar-form">
             <button type="submit" class="search-icon">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
@@ -95,144 +96,118 @@
     </header>
 
     <section class="courses-section">
-      <ul class="lst-of-courses">
-        <li class="type-of-corses active"><a href="#">Python</a></li>
-        <li class="type-of-corses"><a href="#">Excel</a></li>
-        <li class="type-of-corses"><a href="#">Web Development</a></li>
-        <li class="type-of-corses"><a href="#">JavaScript</a></li>
-        <li class="type-of-corses"><a href="#">Data Science</a></li>
-        <li class="type-of-corses"><a href="#">AWS Certificate</a></li>
-        <li class="type-of-corses"><a href="#">Drawing</a></li>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="Python-tab" data-bs-toggle="tab" data-bs-target="#Python" type="button" role="tab" aria-controls="Python" aria-selected="true">Python</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="Excel-tab" data-bs-toggle="tab" data-bs-target="#Excel" type="button" role="tab" aria-controls="Excel" aria-selected="false">Excel</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="WebDevelopment-tab" data-bs-toggle="tab" data-bs-target="#WebDevelopment" type="button" role="tab" aria-controls="WebDevelopment" aria-selected="false">Web Development</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="JavaScript-tab" data-bs-toggle="tab" data-bs-target="#JavaScript" type="button" role="tab" aria-controls="JavaScript" aria-selected="false">JavaScript</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="DataScience-tab" data-bs-toggle="tab" data-bs-target="#DataScience" type="button" role="tab" aria-controls="DataScience" aria-selected="false">Data Science</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="AWSCertificate-tab" data-bs-toggle="tab" data-bs-target="#AWSCertificate" type="button" role="tab" aria-controls="AWSCertificate" aria-selected="false">AWS Certificate</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="Drawing-tab" data-bs-toggle="tab" data-bs-target="#Drawing" type="button" role="tab" aria-controls="Drawing" aria-selected="false">Drawing</button>
+        </li>
       </ul>
-      <div class="show-courses">
-        <div class="hder-of-courses-section">
-          <div class="title">Expand your career opportunities with Python</div>
-          <div class="details">
-            Take one of Udemy's range of python courses and learn how to code
-            using this incredibly useful language.its simple syntax and
-            readability makes python perfect for Flask, Django, data Science,
-            and machine learning. You'll learn how to build everything from
-            games to websites to apps. Choose from a range of courses that
-            appeal to...
-          </div>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active pt-2" id="Python" role="tabpanel" aria-labelledby="Python-tab">
+         
         </div>
-        <button type="button" class="btn-Explore">Explore python</button>
-        <div class="lst-courses">
-          <div class="card">
-            <div class="card-img">
-              <a href="#"><img src="./image/python1.jpg" alt="python" /></a>
-            </div>
-            <div class="card-info">
-              <div class="card-title">
-                Learn Python: The Complete Python Programming Course
+        <!-- <div class="tab-pane fade" id="Excel" role="tabpanel" aria-labelledby="Excel-tab">Excel</div>
+        <div class="tab-pane fade" id="WebDevelopment" role="tabpanel" aria-labelledby="WebDevelopment-tab">Web Development</div>
+        <div class="tab-pane fade" id="JavaScript" role="tabpanel" aria-labelledby="JavaScript-tab">JavaScript</div>
+        <div class="tab-pane fade" id="DataScience" role="tabpanel" aria-labelledby="DataScience-tab">Data Science</div>
+        <div class="tab-pane fade" id="AWSCertificate" role="tabpanel" aria-labelledby="AWSCertificate-tab">AWS Certificate</div>
+        <div class="tab-pane fade" id="Drawing" role="tabpanel" aria-labelledby="Drawing-tab">Drawing</div> -->
+      </div>
+      
+      
+    </section>
+    <!-- <section class="categories-section ">
+      <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+          <div class="col-auto m-1">
+            <div class="card" >
+              <img src="./image/Desgin.png" class="card-img-top" alt="Desgin">
+              <div class="card-body">
+                <p class="card-text">Desgin</p>
               </div>
-              <div class="card-auther">Avinash Jain, The Codex</div>
-              <div class="card-rate">
-                <ul id="ul-list">
-                  <i>4.6</i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star-half-alt" style="color: #f4c150"></i>
-                </ul>
-              </div>
-              <div class="card-price">E£679.99</div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-img">
-              <a href="#"><img src="./image/python2.jpg" alt="python" /></a>
-            </div>
-            <div class="card-info">
-              <div class="card-title">
-                Learning Python for Data Analysis and Visualization
+          <div class="col-auto m-1">
+            <div class="card" >
+              <img src="./image/Development.png" class="card-img-top" alt="Development">
+              <div class="card-body">
+                <p class="card-text">Development</p>
               </div>
-              <div class="card-auther">Jose Portilla</div>
-              <div class="card-rate">
-                <ul id="ul-list">
-                  <i>4.4</i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star-half-alt" style="color: #f4c150"></i>
-                </ul>
-              </div>
-              <div class="card-price">E£1599.99</div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-img">
-              <a href="#"><img src="./image/python4.jpg" alt="python" /></a>
-            </div>
-            <div class="card-info">
-              <div class="card-title">
-                Python for Beginners - Learn Programming from scratch
+          <div class="col-auto m-1">
+            <div class="card" >
+              <img src="./image/Marketing.png" class="card-img-top" alt="Marketing">
+              <div class="card-body">
+                <p class="card-text">Marketing</p>
               </div>
-              <div class="card-auther">
-                Edwin Diaz, Coding Faculty Solutions
-              </div>
-              <div class="card-rate">
-                <ul id="ul-list">
-                  <i>4.4</i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star-half-alt" style="color: #f4c150"></i>
-                </ul>
-              </div>
-              <div class="card-price">E£679.99</div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-img">
-              <a href="#"><img src="./image/python5.jpg" alt="python" /></a>
-            </div>
-            <div class="card-info">
-              <div class="card-title">Learn Python: Python for Beginners</div>
-              <div class="card-auther">Abrar Hussain</div>
-              <div class="card-rate">
-                <ul id="ul-list">
-                  <i>4.2</i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star-half-alt" style="color: #f4c150"></i>
-                </ul>
+          <div class="col-auto m-1">
+            <div class="card" >
+              <img src="./image/IT-and-Software.png" class="card-img-top" alt="IT and Software">
+              <div class="card-body">
+                <p class="card-text">IT and Software</p>
               </div>
-              <div class="card-price">E£319.99</div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-img">
-              <a href="#"><img src="./image/python3.jpg" alt="python" /></a>
-            </div>
-            <div class="card-info">
-              <div class="card-title">
-                Python Beyond the Basics - Object-Oriented Programming
+          <div class="col-auto m-1">
+            <div class="card" >
+              <img src="./image/personal-development.png" class="card-img-top" alt="personal development">
+              <div class="card-body">
+                <p class="card-text">personal development</p>
               </div>
-              <div class="card-auther">Infinite Skills</div>
-              <div class="card-rate">
-                <ul id="ul-list">
-                  <i>4.4</i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star" style="color: #f4c150"></i>
-                  <i class="fas fa-star-half-alt" style="color: #f4c150"></i>
-                </ul>
-              </div>
-              <div class="card-price">E£519.99</div>
             </div>
           </div>
-          
-          
+          <div class="col-auto m-1">
+            <div class="card" >
+              <img src="./image/Business.png" class="card-img-top" alt="Business">
+              <div class="card-body">
+                <p class="card-text">Business</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto m-1">
+            <div class="card" >
+              <img src="./image/Photography.png" class="card-img-top" alt="Photography">
+              <div class="card-body">
+                <p class="card-text">Photography</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto m-1">
+            <div class="card" >
+              <img src="./image/Music.png" class="card-img-top" alt="Music">
+              <div class="card-body">
+                <p class="card-text">Music</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </section> -->
     
+    
+
+    <script src="./script.js" type="module"></script>
+    <!-- <script src="./TRIE.js" type="module"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>

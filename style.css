@@ -12,8 +12,8 @@ button {
   cursor: pointer;
 }
 a {
-  text-decoration: none;
-  color: inherit;
+  text-decoration: none !important;
+  color: inherit !important;
 }
 li {
   list-style: none;
@@ -219,7 +219,7 @@ li {
   /* border:1px solid black; */
   width:249px;
   /* height:259px; */
-  margin:0 5px;
+  margin:5px;
 }
 .card-info div{
   padding:5px 0 0 0;
@@ -234,7 +234,10 @@ li {
   color:gray;
   font-weight: 100;
 }
-
+/*================================================= categories-section ===============================*/
+.categories-section{
+  /* text-align: center; */
+}
 
 
 
