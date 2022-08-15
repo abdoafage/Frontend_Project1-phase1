@@ -10,10 +10,15 @@ body {
 }
 button {
   cursor: pointer;
+  border: none;
 }
 a {
   text-decoration: none !important;
   color: inherit !important;
+}
+ul{
+  padding: 0 !important; 
+  margin: 0 !important;
 }
 li {
   list-style: none;
@@ -154,11 +159,13 @@ li {
 .courses-section{
   /* border: 1px solid black; */
   padding: 10px;
+  
 }
 
 .lst-of-courses{
   display: flex;
   flex-wrap: wrap;
+  /* overflow: hidden; */
   /* border: 1px solid black; */
 }
 
@@ -175,6 +182,8 @@ li {
 }
 
 .show-courses{
+  /* display: flex; */
+  /* overflow: hidden; */
   padding: 10px;
   border: 1px solid rgb(187, 187, 187);
   font-family: sans-serif;
@@ -204,42 +213,66 @@ li {
   cursor: pointer;
   font-weight: bold;
   padding:10px;
+ 
+}
+.lst-groupCourses{
+  border: 1px solid black;
+  overflow: hidden;
+  position: relative;
+  height: 300px;
+}
+.groupCourses{
+  display: inline-flex;
+  position: absolute;
 }
 
-.lst-courses{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+.sigleCourse{
+  width:249px;
+  margin: 5px;
 }
-.card-img img{
+.sigleCourse-img img{
   width:100%;
   border:1px solid rgb(214, 214, 214);
 }
-.card{
-  /* border:1px solid black; */
-  width:249px;
-  /* height:259px; */
-  margin:5px;
-}
-.card-info div{
-  padding:5px 0 0 0;
+
+.sigleCourse-info > div{
+  /* padding:5px 0 0 0 !important; */
   font-weight: bold;
 }
-.card-info .card-title{
+/* .sigleCourse-stars{
+  padding: -32px ;
+  margin: 0 !important;
+} */
+.sigleCourse-info .sigleCourse-title{
   padding:10px 0 0 0;
 }
 
-.card-info .card-auther{
+.sigleCourse-info .sigleCourse-auther{
   font-size: 15px;
   color:gray;
   font-weight: 100;
 }
-/*================================================= categories-section ===============================*/
-.categories-section{
-  /* text-align: center; */
+
+.right-arrow i,
+.left-arrow i{
+  font-size: 30px;
+}
+.right-arrow,
+.left-arrow{
+  border-radius: 50px;
+}
+.right-arrow{
+  position: absolute;
+  top:50%;
+  right:0;
+}
+.left-arrow{
+  position: absolute;
+  top:50%;
+  left:0;
 }
 
-
+/*================================================= categories-section ===============================*/
 
 
 
