@@ -4,55 +4,23 @@ const searchInput = document.querySelector(".search-input");
 const searchBarForm = document.querySelector(".search-bar-form");
 const rightArrow = document.querySelector(".right-arrow");
 const leftArrow = document.querySelector(".left-arrow");
-const swiperSmall={
-  slidesPerView: 1,
-  spaceBetween: 30,
-  slidesPerGroup: 1,
-  loop: true,
-  loopFillGroupWithBlank: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".right-arrow",
-    prevEl: ".left-arrow",
-  },
-}
-const swiperMid={
-  slidesPerView: 3,
-  spaceBetween: 30,
-  slidesPerGroup: 3,
-  loop: true,
-  loopFillGroupWithBlank: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".right-arrow",
-    prevEl: ".left-arrow",
-  },
-}
 
-const swiperLarge={
-  slidesPerView: 5,
-  spaceBetween: 30,
-  slidesPerGroup: 5,
-  loop: true,
-  loopFillGroupWithBlank: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".right-arrow",
-    prevEl: ".left-arrow",
-  },
-}
+
 
 function templateCourse(item) {
   const { image, title, rating, stars, price, instructors } = item;
+  const finalStars = stars
+    .map(
+      (star) =>
+        `<i class="${
+          star == 1
+            ? "fas fa-star"
+            : star == 0.5
+            ? "fas fa-star-half-alt"
+            : "fa-regular fa-star"
+        }" style="color: #f4c150"></i>`
+    )
+    .join("");
   return `<div class="sigleCourse">
         <div class="sigleCourse-img">
           <a href="#"><img src="${image}" alt="python" /></a>
@@ -65,41 +33,7 @@ function templateCourse(item) {
           <div class="sigleCourse-rate">
             <ul id="sigleCourse-stars">
               <i>${rating.toFixed(1)}</i>
-              <i class="${
-                stars[0] == 1
-                  ? "fas fa-star"
-                  : stars[0] == 0.5
-                  ? "fas fa-star-half-alt"
-                  : "fa-regular fa-star"
-              }" style="color: #f4c150"></i>
-              <i class="${
-                stars[1] == 1
-                  ? "fas fa-star"
-                  : stars[1] == 0.5
-                  ? "fas fa-star-half-alt"
-                  : "fa-regular fa-star"
-              }" style="color: #f4c150"></i>
-              <i class="${
-                stars[2] == 1
-                  ? "fas fa-star"
-                  : stars[2] == 0.5
-                  ? "fas fa-star-half-alt"
-                  : "fa-regular fa-star"
-              }" style="color: #f4c150"></i>
-              <i class="${
-                stars[3] == 1
-                  ? "fas fa-star"
-                  : stars[3] == 0.5
-                  ? "fas fa-star-half-alt"
-                  : "fa-regular fa-star"
-              }" style="color: #f4c150"></i>
-              <i class="${
-                stars[4] == 1
-                  ? "fas fa-star"
-                  : stars[4] == 0.5
-                  ? "fas fa-star-half-alt"
-                  : "fa-regular fa-star"
-              }" style="color: #f4c150"></i>
+              ${finalStars}
             </ul>
           </div>
           <div class="sigleCourse-price">E£${price}</div>
@@ -113,7 +47,7 @@ async function getData(url) {
   return ret;
 }
 
-async function getHeader(CAT,Selector,btn_name) {
+async function getHeader(CAT, Selector, btn_name) {
   let courses = "";
 
   const DATA = await getData(`http://localhost:3000/${CAT}`);
@@ -126,7 +60,7 @@ async function getHeader(CAT,Selector,btn_name) {
     q++;
     //if(q>=6)break;
   }
-  
+
   const res = `<div class="show-courses">
     <div class="hder-of-courses-section">
       <div class="title">${DATA.header}</div>
@@ -147,55 +81,60 @@ async function getHeader(CAT,Selector,btn_name) {
   document.querySelector(`${Selector}`).innerHTML = res;
   console.log(res);
 
-  const rightArrow = document.querySelector(`${Selector} .show-courses .lst-courses .lst-groupCourses .right-arrow`);
-  const leftArrow = document.querySelector(`${Selector} .show-courses .lst-courses .lst-groupCourses .left-arrow`);
-  
-  rightArrow.addEventListener("click",()=>{
-    const groupCourses = rightArrow.parentElement.querySelector(".groupCourses");
-    const pos = parseInt(groupCourses.style.left==''?0:groupCourses.style.left) - 300;
-    
-    groupCourses.style.left = pos + "px";
-  })
-  leftArrow.addEventListener("click",()=>{
-    const groupCourses = leftArrow.parentElement.querySelector(".groupCourses");
-    const pos = parseInt(groupCourses.style.left==''?0:groupCourses.style.left) + 300;
+  const rightArrow = document.querySelector(
+    `${Selector} .show-courses .lst-courses .lst-groupCourses .right-arrow`
+  );
+  const leftArrow = document.querySelector(
+    `${Selector} .show-courses .lst-courses .lst-groupCourses .left-arrow`
+  );
 
-    if(pos<=0) groupCourses.style.left=pos + "px";
-  })
+  rightArrow.addEventListener("click", () => {
+    const groupCourses =
+      rightArrow.parentElement.querySelector(".groupCourses");
+    const pos =
+      parseInt(groupCourses.style.left == "" ? 0 : groupCourses.style.left) -
+      300;
+
+    groupCourses.style.left = pos + "px";
+  });
+  leftArrow.addEventListener("click", () => {
+    const groupCourses = leftArrow.parentElement.querySelector(".groupCourses");
+    const pos =
+      parseInt(groupCourses.style.left == "" ? 0 : groupCourses.style.left) +
+      300;
+
+    if (pos <= 0) groupCourses.style.left = pos + "px";
+  });
 }
 
+getHeader("Python", "#python", "python");
+getHeader("Excel", "#Excel", "Excel");
+getHeader("WebDevelopment", "#WebDevelopment", "Web Development");
+getHeader("JavaScript", "#JavaScript", "JavaScript");
+getHeader("DataScience", "#DataScience", "Data Science");
+getHeader("AWSCertificate", "#AWSCertificate", "AWS Certificate");
+getHeader("Drawing", "#Drawing", "Drawing");
 
-getHeader("Python","#python","python");
-getHeader("Excel","#Excel","Excel");
-getHeader("WebDevelopment","#WebDevelopment","Web Development");
-getHeader("JavaScript","#JavaScript","JavaScript");
-getHeader("DataScience","#DataScience","Data Science");
-getHeader("AWSCertificate","#AWSCertificate","AWS Certificate");
-getHeader("Drawing","#Drawing","Drawing");
-
-
-searchBarForm.addEventListener("submit",  (e) => {
+searchBarForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const content = document.querySelectorAll("#myTabContent .active .show-courses .lst-courses .sigleCourse");
-  console.log(content)
-  for(let i = 0;i<content.length;i++){
-    const title = content[i].querySelector(".sigleCourse-info .sigleCourse-title").textContent.trim();
-    
-    console.log(title,searchInput.value);
-    if(title != searchInput.value && searchInput.value!==""){
-      content[i].classList.add("d-none")
-    }else{
+  const content = document.querySelectorAll(
+    "#myTabContent .active .show-courses .lst-courses .sigleCourse"
+  );
+  console.log(content);
+  for (let i = 0; i < content.length; i++) {
+    const title = content[i]
+      .querySelector(".sigleCourse-info .sigleCourse-title")
+      .textContent.trim();
+
+    console.log(title, searchInput.value);
+    if (title != searchInput.value && searchInput.value !== "") {
+      content[i].classList.add("d-none");
+    } else {
       content[i].classList.remove("d-none");
     }
   }
   // console.log("item => ",item);
 });
-
-
-
-
-
-
 
 // function setup(x) {
 //   if (x.matches) { // If media query matches
@@ -204,12 +143,12 @@ searchBarForm.addEventListener("submit",  (e) => {
 //     // document.body.style.backgroundColor = "yellow";
 //   } else {
 //   //  document.body.style.backgroundColor = "pink";
-  
+
 //     new Swiper(".mySwiper", swiperLarge);
 //     document.querySelector(".swiper").style.height='500px';
 //   }
 // }
 
 // var x = window.matchMedia("(max-width: 700px)")
-// setup(x) 
-// x.addListener(setup) 
+// setup(x)
+// x.addListener(setup)
